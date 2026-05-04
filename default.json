@@ -15,31 +15,47 @@
       "description": "Keep npm dev dependencies on latest versions",
       "matchManagers": ["npm"],
       "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "Group npm dev dependency non-major updates",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "Node.js dev dependencies",
-      "groupSlug": "nodejs-dev-dependencies",
-      "rangeStrategy": "bump"
+      "groupSlug": "nodejs-dev-dependencies"
     },
     {
       "description": "Keep Cargo dev dependencies on latest versions",
       "matchManagers": ["cargo"],
       "matchDepTypes": ["dev-dependencies"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "groupName": "Rust dev dependencies",
-      "groupSlug": "rust-dev-dependencies",
       "rangeStrategy": "bump"
     },
     {
       "description": "Keep Cargo build dependencies on latest versions",
       "matchManagers": ["cargo"],
       "matchDepTypes": ["build-dependencies"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "groupName": "Rust dev dependencies",
-      "groupSlug": "rust-dev-dependencies",
       "rangeStrategy": "bump"
     },
     {
+      "description": "Group Cargo dev dependency non-major updates",
+      "matchManagers": ["cargo"],
+      "matchDepTypes": ["dev-dependencies", "build-dependencies"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "Rust dev dependencies",
+      "groupSlug": "rust-dev-dependencies"
+    },
+    {
       "description": "Keep PEP 735 dev dependency group on latest versions",
+      "matchManagers": ["pep621"],
+      "matchDepTypes": ["dependency-groups"],
+      "matchJsonata": [
+        "depType='dependency-groups' and managerData.depGroup='dev'"
+      ],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "Group PEP 735 dev dependency non-major updates",
       "matchManagers": ["pep621"],
       "matchDepTypes": ["dependency-groups"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
@@ -47,8 +63,7 @@
         "depType='dependency-groups' and managerData.depGroup='dev'"
       ],
       "groupName": "Python dev dependencies",
-      "groupSlug": "python-dev-dependencies",
-      "rangeStrategy": "bump"
+      "groupSlug": "python-dev-dependencies"
     }
   ]
 }
