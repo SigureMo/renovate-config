@@ -2,6 +2,7 @@
   "extends": ["config:base", "schedule:weekly", "group:allNonMajor"],
   "labels": ["dependencies"],
   "pin": false,
+  "minimumReleaseAge": "1 day",
   "commitMessagePrefix": "⬆️ deps: ",
   "dependencyDashboardTitle": "☑️ Dependency Dashboard",
   "packageRules": [
