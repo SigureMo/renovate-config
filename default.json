@@ -4,6 +4,7 @@
   "pin": false,
   "minimumReleaseAge": "1 day",
   "commitMessagePrefix": "⬆️ deps: ",
+  "commitMessageAction": "bump",
   "dependencyDashboardTitle": "☑️ Dependency Dashboard",
   "packageRules": [
     {
@@ -50,9 +51,7 @@
       "description": "Keep PEP 735 dev dependency group on latest versions",
       "matchManagers": ["pep621"],
       "matchDepTypes": ["dependency-groups"],
-      "matchJsonata": [
-        "depType='dependency-groups' and managerData.depGroup='dev'"
-      ],
+      "matchJsonata": ["depType='dependency-groups' and managerData.depGroup='dev'"],
       "rangeStrategy": "bump"
     },
     {
@@ -60,9 +59,7 @@
       "matchManagers": ["pep621"],
       "matchDepTypes": ["dependency-groups"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "matchJsonata": [
-        "depType='dependency-groups' and managerData.depGroup='dev'"
-      ],
+      "matchJsonata": ["depType='dependency-groups' and managerData.depGroup='dev'"],
       "groupName": "Python dev dependencies",
       "groupSlug": "python-dev-dependencies"
     }
